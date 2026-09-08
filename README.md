@@ -29,7 +29,7 @@ npm run dev
 
 Abrí `http://localhost:3000`.
 
-El dashboard muestra el estado de Linear y GitHub. Linear se verifica server-side mediante Vercel Connect; la UI nunca recibe el token. GitHub figura como no configurado hasta que exista un repositorio real.
+El dashboard muestra el estado de Linear y GitHub. Ambas fuentes se consultan server-side mediante Vercel Connect; la UI nunca recibe sus tokens.
 
 La sección **Horas reales** lee los archivos Markdown de `time-entries/` y guarda
 lo que Linear no tiene: el tiempo real contra el estimado y las dificultades de
@@ -114,9 +114,11 @@ Linear es una conexión compartida a nivel aplicación. Todos consultan el mismo
 
 Si cada integrante debe usar su propia cuenta de Linear en lugar de una instalación compartida, hay que agregar Auth.js y cambiar el conector a `principalType: "user"`.
 
-## GitHub (pendiente)
+## GitHub
 
-No hay integración GitHub activa porque SplitIt todavía no tiene repositorio. Cuando exista, se agrega el conector usando la URL real; hasta entonces los agentes informan "GitHub no configurado" y no inventan PRs o actividad.
+El conector `github/splitit-github` consulta los PRs de `SplitItLab/SplitIt`. El dashboard agrupa las horas declaradas en el template por autor y semana de apertura, y muestra el desvío contra la estimación.
+
+Vercel actualiza el corte cada jueves a las 09:00 de Argentina mediante `/api/cron/github-weekly`. La variable `CRON_SECRET` protege ese endpoint.
 
 ## Seguridad actual
 
