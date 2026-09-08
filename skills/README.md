@@ -65,3 +65,4 @@ corre, conviene borrarla.
 | PO | [iterar-canvas](po/iterar-canvas/SKILL.md) | @n-mangini | Trabaja una historia sobre el canvas ya construido: cruza sus criterios contra la pantalla, cierra los huecos con el PO, y deja la issue y el deploy al día |
 | TL | [reparar-secuencia-de-prs](tl/reparar-secuencia-de-prs/SKILL.md) | @lucasmonteverdi1 | Repara dos PRs dependientes mergeadas en orden incorrecto cuando un revert hizo desaparecer funcionalidad de main, sin reescribir su historia |
 | PM | [armar-tickets-semanales](pm/armar-tickets-semanales/SKILL.md) | @husseymarcos | Convierte las prioridades de la semana en tickets para un dev frontend y uno backend con 6 h cada uno, contra el Roadmap y la API mock |
+| PM | [reportar-incidente](pm/reportar-incidente/SKILL.md) | @husseymarcos | Convierte la descripción de un incidente en una fila breve y lista para registrar |

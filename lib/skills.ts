@@ -100,3 +100,15 @@ export async function listSkills(): Promise<RoleGroup[]> {
     })),
   );
 }
+
+const ROLE_KEYS = new Set<string>(["po", "qa", "tl"]);
+
+/** Lee el SKILL.md crudo de una skill. `null` si el role/slug no existe. */
+export async function readSkillMarkdown(role: string, slug: string): Promise<string | null> {
+  if (!ROLE_KEYS.has(role) || !/^[a-z0-9-]+$/.test(slug)) return null;
+  try {
+    return await readFile(path.join(SKILLS_DIR, role, slug, "SKILL.md"), "utf8");
+  } catch {
+    return null;
+  }
+}
