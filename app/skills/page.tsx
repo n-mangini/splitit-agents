@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Download, Eye } from "lucide-react";
 
-import { CopySkill } from "@/components/copy-skill";
+import { CopySkill, InstallCommand } from "@/components/copy-skill";
 import { Button } from "@/components/ui/button";
 import { listSkills } from "@/lib/skills";
+
+const INSTALL_SOURCE = "n-mangini/splitit-agents";
 
 export const metadata: Metadata = {
   title: "Skills · SplitIt",
@@ -87,6 +89,9 @@ export default async function SkillsPage() {
                     ) : null}
                   </div>
                   <p className="text-sm leading-relaxed text-muted-foreground">{skill.description}</p>
+                  <InstallCommand
+                    command={`npx skills add ${INSTALL_SOURCE}@${skill.name} -g`}
+                  />
                   <div className="mt-2 flex flex-col gap-3 border-t border-border pt-3 sm:flex-row sm:items-center sm:justify-between">
                     <p className="min-w-0 truncate font-mono text-xs text-muted-foreground">
                       skills/{skill.role}/{skill.slug}/SKILL.md
