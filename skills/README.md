@@ -66,3 +66,4 @@ corre, conviene borrarla.
 | TL | [reparar-secuencia-de-prs](tl/reparar-secuencia-de-prs/SKILL.md) | @lucasmonteverdi1 | Repara dos PRs dependientes mergeadas en orden incorrecto cuando un revert hizo desaparecer funcionalidad de main, sin reescribir su historia |
 | PM | [armar-tickets-semanales](pm/armar-tickets-semanales/SKILL.md) | @husseymarcos | Convierte las prioridades de la semana en tickets para un dev frontend y uno backend con 6 h cada uno, contra el Roadmap y la API mock |
 | PM | [reportar-incidente](pm/reportar-incidente/SKILL.md) | @husseymarcos | Convierte la descripción de un incidente en una fila breve y lista para registrar |
+| PO | [construir-pantalla](po/construir-pantalla/SKILL.md) | @n-mangini | Construye en el prototipo la pantalla de una historia que todavía no tiene ninguna, y la enchufa al canvas con su dirección estable |
