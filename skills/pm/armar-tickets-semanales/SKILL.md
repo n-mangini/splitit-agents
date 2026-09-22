@@ -90,33 +90,14 @@ Cada ticket debe incluir únicamente:
 
 Usar [SPT-43](https://linear.app/splitit/issue/SPT-43/crear-consultar-y-buscar-eventos-desde-el-frontend)
 como formato de referencia: resultado esperado al inicio y luego, cuando correspondan,
-`Contexto de producto`, `Diseño`, `Documentación`, `Dependencias`, `Contrato`, `API mock`,
+`Contexto de producto`, `Diseño`, `Documentación`, `Dependencias`, `Contrato`,
 `Flujo`, `Implementación`, `Criterios de aceptación`, `Fuera de alcance`, `Estimación` y
 `Entrega`. Omitir secciones que no aporten al ticket.
-
-En tickets frontend de eventos, revisar y enlazar
-[splitit-mock-api](https://github.com/SplitItLab/splitit-mock-api). Usarla para que el
-desarrollo no dependa del backend real y exigir que cambiar al backend requiera sólo modificar
-la URL base. Verificar antes que el mock implemente el endpoint necesario; si falta, declararlo
-como dependencia o trabajo separado en vez de simular un contrato distinto desde el frontend.
 
 Usar enlaces accesibles al diseño o la documentación en vez de copiar su contenido; no
 incluir enlaces privados de GitHub Projects o issues `SPLT-*`.
 Si Linear usa puntos como horas, cargar la relación 1:1 y conservar también las horas en
 la descripción.
-
-### API mock
-
-Base URL: `https://splitit-mock-api.vercel.app`. Repo y README actualizado:
-[SplitItLab/splitit-mock-api](https://github.com/SplitItLab/splitit-mock-api).
-
-- `GET /api/events` — eventos de ejemplo.
-- `GET /api/events/:id` — detalle del evento e integrantes.
-- `POST /api/events` — valida el JSON y devuelve el resumen del evento creado.
-- `OPTIONS /api/events` — preflight CORS (métodos `GET`/`POST`, headers `Authorization` y `Content-Type`).
-
-El `POST` no persiste: el `GET` siguiente no lo refleja. Sin autenticación. Si el ticket
-necesita otro endpoint o comportamiento, declararlo como dependencia o trabajo separado.
 
 ## Escritura en herramientas
 
@@ -129,9 +110,10 @@ herramienta solo admite fecha.
 
 ## Cadencia
 
-El trabajo nuevo empieza el jueves y la PR queda lista el miércoles. La revisión puede
-continuar mientras empieza el siguiente ciclo. Para una demo mensual, incluir solo lo
-mergeado y validado antes del corte acordado; una PR tardía pasa al siguiente corte.
+Entregar los tickets el lunes para que las PR queden listas para review el jueves. La
+revisión puede continuar mientras empieza el siguiente ciclo. Para una demo mensual,
+incluir solo lo mergeado y validado antes del corte acordado; una PR tardía pasa al
+siguiente corte.
 
 Cuando una corrección del usuario revele una regla reutilizable, aplicarla en la sesión.
 Actualizar esta skill solo si el usuario pide persistir esa regla, evitando acumular casos
