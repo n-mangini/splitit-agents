@@ -62,16 +62,16 @@ La metodología consiste en darle al prototipo esa presentación.
 
 ## Las tres fases
 
-### Fase 0 — Las historias (el PO, en el repo de documentación)
+### Fase 0 — Las historias (el PO, en el roadmap de la org)
 
-El PO escribe las historias en la capa de release del repo de documentación (`03-release`
-en SplitIt) y las publica como issues de GitHub. Esto ya existía y no cambia. Las historias
-son la fuente de verdad de **qué tiene que hacer** el producto.
+El PO escribe las historias como issues de GitHub en el roadmap de la org
+(`SplitItLab/roadmap` en SplitIt), colgadas como sub-issues de su épica. Esto ya existía y
+no cambia. Las historias son la fuente de verdad de **qué tiene que hacer** el producto.
 
-La ficha en `03-release` lleva el encuadre — épica, sprint, milestone, la historia en
-formato Como/Quiero/Para que, las capturas— y **los criterios de aceptación viven en la
-issue**. La ficha linkea, no copia. El refinamiento de un criterio pasa en la issue, que
-es donde lo lee el equipo.
+La issue lleva la historia en formato Como/Quiero/Para que y sus criterios de aceptación;
+el GitHub Project la ubica en su sprint. Nada de eso se copia a archivos: el repo de
+documentación, que es privado, guarda las decisiones, no las historias. El refinamiento de
+un criterio pasa en la issue, que es donde lo lee el equipo.
 
 Lo importante es el orden: **las historias primero**. El prototipo se construye contra
 ellas, no al revés. Si el prototipo dicta la historia, se pierde el criterio de negocio y
@@ -163,10 +163,10 @@ mostrara, el PO estaría manteniendo a mano un dato ajeno que se pudre en dos sp
 La ficha de la historia linkea a la issue de GitHub; no copia el texto. Un criterio
 copiado es un criterio que va a divergir.
 
-Esto vale para el canvas y también para la propia ficha en `03-release`: los criterios
-estuvieron duplicados entre el `.md` y la issue hasta que SPLT-001 divergió — el `.md`
+Esto vale para el canvas y también para el repo de documentación: los criterios estuvieron
+duplicados entre un `.md` por historia y la issue hasta que SPLT-001 divergió — el `.md`
 decía "reglas mínimas definidas" mientras la issue ya especificaba los 8 caracteres. Se
-dejó un único lugar: la issue.
+dejó un único lugar: la issue, y los `.md` por historia se eliminaron.
 
 ### 4. Desde el canvas no se salta a la app
 

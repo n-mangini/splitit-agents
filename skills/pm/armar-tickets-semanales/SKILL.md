@@ -26,11 +26,12 @@ Reconstruir el estado real con las fuentes disponibles, en este orden:
 1. El GitHub Project **SplitIt Roadmap**, especialmente su vista Gantt:
    `https://github.com/orgs/SplitItLab/projects/1/views/2`. Tomar de ahí el Sprint,
    milestone y las user stories previstas para la semana actual.
-2. Las issues `SPLT-*` enlazadas desde el Roadmap, que definen alcance y criterios de
-   producto.
+2. Las issues `SPLT-*` de `SplitItLab/roadmap`, colgadas como sub-issues de su épica
+   `EPICA-*`, que definen alcance y criterios de producto.
 3. Implementación actual, PRs abiertos, issues técnicas y trabajo pendiente de revisión.
-4. Roadmap, iteración y decisiones del repositorio; usar
-   `03-release/release-plan.md` como respaldo si el GitHub Project no está accesible.
+4. Iteración y decisiones del repositorio de documentación (`04-iteration/`), que es
+   privado. Si el GitHub Project no está accesible, no hay respaldo: avisarlo y no
+   planificar de memoria.
 5. Sesiones recientes del mismo proyecto, si son accesibles.
 
 El Roadmap define la intención semanal; el estado del código define qué es viable. Si
@@ -39,9 +40,10 @@ Gantt y su impacto en las semanas siguientes. No reemplazar silenciosamente una 
 programada. Ante otras contradicciones, señalarla y usar la decisión explícita más
 reciente.
 
-GitHub Projects y las referencias `SPLT-*` son contexto privado de planificación. Usarlas
-para decidir alcance y trazabilidad interna, pero nunca mencionarlas ni enlazarlas en los
-tickets destinados a developers. Los enlaces al Canvas sí pueden incluirse.
+El Roadmap y las issues `SPLT-*` viven en la org y los developers los pueden ver, así que
+un ticket puede enlazar la historia que implementa. Lo que nunca se menciona ni se enlaza
+en un ticket es el repositorio de documentación: sus decisiones, horas y evaluaciones son
+privadas. Los enlaces al Canvas sí pueden incluirse.
 
 ## Reglas de planificación
 
@@ -95,7 +97,7 @@ como formato de referencia: resultado esperado al inicio y luego, cuando corresp
 `Entrega`. Omitir secciones que no aporten al ticket.
 
 Usar enlaces accesibles al diseño o la documentación en vez de copiar su contenido; no
-incluir enlaces privados de GitHub Projects o issues `SPLT-*`.
+incluir enlaces al repositorio de documentación, que es privado.
 Si Linear usa puntos como horas, cargar la relación 1:1 y conservar también las horas en
 la descripción.
 

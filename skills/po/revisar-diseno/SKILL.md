@@ -27,7 +27,7 @@ Por defecto anota las discrepancias en la issue. `--dry-run` reporta y no escrib
 
 ## Repositorio
 
-Las issues viven en `SplitItLab/dirproy`. Pasar siempre `--repo SplitItLab/dirproy` a `gh`.
+Las issues viven en `SplitItLab/roadmap`. Pasar siempre `--repo SplitItLab/roadmap` a `gh`.
 Si el usuario indica otro repo, usar ese.
 
 ## Procedimiento
@@ -35,13 +35,13 @@ Si el usuario indica otro repo, usar ese.
 ### 1. Leer la historia
 
 ```bash
-gh issue view <n> --repo SplitItLab/dirproy --json title,body -q '.title + "\n" + .body'
+gh issue view <n> --repo SplitItLab/roadmap --json title,body -q '.title + "\n" + .body'
 ```
 
 Sin argumentos, listar primero las candidatas y quedarse con las que tengan `## Diseño`:
 
 ```bash
-gh issue list --repo SplitItLab/dirproy --limit 100 --json number,title,body \
+gh issue list --repo SplitItLab/roadmap --limit 100 --json number,title,body \
   -q '.[] | select(.body | contains("## Diseño")) | "\(.number) \(.title)"'
 ```
 
