@@ -2,14 +2,14 @@
 name: SplitIt PM Workspace
 description: A quiet control room that turns project truth into action.
 colors:
-  signal-blue: "oklch(0.54 0.18 255)"
-  ink: "oklch(0.22 0.025 255)"
-  canvas: "oklch(0.975 0.004 255)"
-  surface: "oklch(1 0 0)"
-  sidebar: "oklch(0.955 0.008 255)"
-  muted: "oklch(0.95 0.006 255)"
-  muted-ink: "oklch(0.48 0.025 255)"
-  border: "oklch(0.9 0.009 255)"
+  signal-mint: "#29c3a0"
+  ink: "#0c0c0c"
+  canvas: "#f8f8f6"
+  surface: "#ffffff"
+  sidebar: "#0c0c0c"
+  muted: "#f1f1ef"
+  muted-ink: "#737373"
+  border: "#e2e2df"
 typography:
   headline:
     fontFamily: "Geist, ui-sans-serif, system-ui, sans-serif"
@@ -44,8 +44,8 @@ spacing:
   xl: "32px"
 components:
   button-primary:
-    backgroundColor: "{colors.signal-blue}"
-    textColor: "{colors.surface}"
+    backgroundColor: "{colors.signal-mint}"
+    textColor: "{colors.ink}"
     rounded: "{rounded.sm}"
     padding: "8px 16px"
     height: "36px"
@@ -82,10 +82,10 @@ The system rejects the generic AI dashboard. It does not use spectacle to imply 
 
 ## Colors
 
-The palette is neutral and cool, with blue reserved for functional emphasis.
+The palette is neutral and warm, with mint reserved for functional emphasis.
 
 ### Primary
-- **Signal Blue:** Use only for primary actions, focus, selection, and meaningful active state.
+- **Signal Mint:** Use only for primary actions, focus, selection, and meaningful active state.
 
 ### Neutral
 - **Ink:** Primary text and high-emphasis controls.
@@ -95,7 +95,7 @@ The palette is neutral and cool, with blue reserved for functional emphasis.
 - **Muted / Muted Ink:** Secondary surfaces and supporting copy.
 - **Border:** Dividers and control boundaries.
 
-**The Signal Rule.** Signal Blue is rare. Never use it as decoration or to make inactive content look important.
+**The Signal Rule.** Signal Mint is rare. Never use it as decoration or to make inactive content look important.
 
 ## Typography
 
@@ -129,7 +129,7 @@ Components feel restrained and immediate, using familiar web affordances and 150
 
 ### Buttons
 - **Shape:** Gently squared corners (6px).
-- **Primary:** Signal Blue with white text; reserve for the action that advances the task.
+- **Primary:** Signal Mint with dark text; reserve for the action that advances the task.
 - **Hover / Focus:** Slight tonal shift and a visible three-pixel focus ring.
 - **Secondary / Ghost:** Neutral surfaces; no decorative color.
 
@@ -155,7 +155,7 @@ Components feel restrained and immediate, using familiar web affordances and 150
 
 ### Do:
 - **Do** make the next action visible without scanning multiple panels.
-- **Do** use Signal Blue only for action, focus, selection, and meaningful state.
+- **Do** use Signal Mint only for action, focus, selection, and meaningful state.
 - **Do** preserve keyboard access, visible focus, reduced motion, and WCAG 2.2 AA contrast.
 - **Do** keep project evidence and recommendations readable at a maximum line length near 70ch.
 

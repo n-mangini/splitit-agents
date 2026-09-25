@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Download, Eye } from "lucide-react";
+
+import { CopySkill, InstallCommand } from "@/components/copy-skill";
+import { Button } from "@/components/ui/button";
 import { listSkills } from "@/lib/skills";
+
+const INSTALL_SOURCE = "n-mangini/splitit-agents";
 
 export const metadata: Metadata = {
   title: "Skills · SplitIt",
@@ -24,7 +30,10 @@ export default async function SkillsPage() {
         <h1 className="text-3xl font-semibold tracking-tight text-foreground">Skills</h1>
         <p className="max-w-prose text-sm leading-relaxed text-muted-foreground">
           Herramientas de trabajo de cada rol. Son instrucciones versionadas en este repo, que
-          se ejecutan desde Claude Code o Codex: esta página las lee y las muestra.
+          se ejecutan desde Claude Code o Codex: esta página las lee y las muestra. Para
+          portarlas: en Claude Code van en <span className="font-mono">~/.claude/skills/</span>{" "}
+          (o corre <span className="font-mono">skills/install.sh</span>); en Codex, pegá el
+          contenido en <span className="font-mono">AGENTS.md</span>.
         </p>
       </header>
 
@@ -80,9 +89,33 @@ export default async function SkillsPage() {
                     ) : null}
                   </div>
                   <p className="text-sm leading-relaxed text-muted-foreground">{skill.description}</p>
-                  <p className="font-mono text-xs text-muted-foreground">
-                    skills/{skill.role}/{skill.slug}/SKILL.md
-                  </p>
+                  <InstallCommand
+                    command={`npx skills add ${INSTALL_SOURCE}@${skill.name} -g`}
+                  />
+                  <div className="mt-2 flex flex-col gap-3 border-t border-border pt-3 sm:flex-row sm:items-center sm:justify-between">
+                    <p className="min-w-0 truncate font-mono text-xs text-muted-foreground">
+                      skills/{skill.role}/{skill.slug}/SKILL.md
+                    </p>
+                    <div
+                      aria-label={`Acciones para /${skill.name}`}
+                      className="flex flex-wrap items-center gap-1 sm:shrink-0"
+                      role="group"
+                    >
+                      <CopySkill href={`/skills/${skill.role}/${skill.slug}/raw`} />
+                      <Button asChild size="sm" variant="ghost">
+                        <a href={`/skills/${skill.role}/${skill.slug}/raw?dl=1`}>
+                          <Download aria-hidden />
+                          Descargar
+                        </a>
+                      </Button>
+                      <Button asChild size="sm" variant="ghost">
+                        <a href={`/skills/${skill.role}/${skill.slug}/raw`}>
+                          <Eye aria-hidden />
+                          Ver
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
                 </li>
               ))}
             </ul>

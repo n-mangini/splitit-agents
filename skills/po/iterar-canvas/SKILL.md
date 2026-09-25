@@ -94,8 +94,7 @@ Cuando son varias, preguntar en qué orden conviene, y respetarlo. El PO suele t
 gh issue view <n> --repo <owner>/<repo> --json title,body -q '.title + "\n" + .body'
 ```
 
-Los criterios viven en la issue, no en la ficha del repo de documentación. No trabajar de
-memoria ni de la ficha.
+Los criterios viven en la issue y en ningún otro lado. No trabajar de memoria.
 
 ### 2. Cruzar contra la pantalla
 

@@ -1,5 +1,6 @@
-import { AgentChat } from "@/app/_components/agent-chat";
+import { ProjectDashboard } from "@/app/_components/project-dashboard";
+import { listTickets } from "@/lib/time-entries";
 
-export default function Page() {
-  return <AgentChat />;
+export default async function Page() {
+  return <ProjectDashboard catalog={await listTickets()} />;
 }

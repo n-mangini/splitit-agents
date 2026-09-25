@@ -12,7 +12,7 @@ no dependen de la app.
 skills/<rol>/<nombre-en-kebab-case>/SKILL.md
 ```
 
-Roles: `po`, `qa`, `tl`. Las del PM viven en `agents/`.
+Roles: `pm`, `po`, `qa`, `tl`.
 
 ## Instalar
 
@@ -34,7 +34,7 @@ Cada `SKILL.md` arranca con este frontmatter:
 ---
 name: nombre-en-kebab-case
 owner: "@handle-de-github"
-role: po | qa | tl
+role: pm | po | qa | tl
 created: YYYY-MM-DD
 description: Qué hace y cuándo conviene usarla. Es lo que decide si se invoca.
 ---
@@ -64,4 +64,7 @@ corre, conviene borrarla.
 | QA | [frontend-screenshots](qa/frontend-screenshots/SKILL.md) | @FranManfredi | Arma un pipeline de screenshots de frontend con Playwright y GitHub Actions, con capturas desktop/mobile, artefacto descargable y galería HTML |
 | PO | [iterar-canvas](po/iterar-canvas/SKILL.md) | @n-mangini | Trabaja una historia sobre el canvas ya construido: cruza sus criterios contra la pantalla, cierra los huecos con el PO, y deja la issue y el deploy al día |
 | TL | [reparar-secuencia-de-prs](tl/reparar-secuencia-de-prs/SKILL.md) | @lucasmonteverdi1 | Repara dos PRs dependientes mergeadas en orden incorrecto cuando un revert hizo desaparecer funcionalidad de main, sin reescribir su historia |
+| PM | [armar-tickets-semanales](pm/armar-tickets-semanales/SKILL.md) | @husseymarcos | Convierte las prioridades de la semana en tickets para un dev frontend y uno backend con 6 h cada uno, contra el Roadmap y la API mock |
+| PM | [reportar-incidente](pm/reportar-incidente/SKILL.md) | @husseymarcos | Convierte la descripción de un incidente en una fila breve y lista para registrar |
+| PO | [construir-pantalla](po/construir-pantalla/SKILL.md) | @n-mangini | Construye en el prototipo la pantalla de una historia que todavía no tiene ninguna, y la enchufa al canvas con su dirección estable |
 | TL | [contenerizar-app](tl/contenerizar-app/SKILL.md) | @lucasmonteverdi1 | Conteneriza las apps de un repo (una sola o monorepo) y arma el pipeline que publica cada imagen en GHCR |

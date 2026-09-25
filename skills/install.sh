@@ -7,7 +7,7 @@ repo_skills="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 dest="$HOME/.claude/skills"
 mkdir -p "$dest"
 
-for rol in po qa tl; do
+for rol in pm po qa tl; do
   [ -d "$repo_skills/$rol" ] || continue
   for skill in "$repo_skills/$rol"/*/; do
     [ -d "$skill" ] || continue

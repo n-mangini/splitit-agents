@@ -2,7 +2,7 @@ import type { Dirent } from "node:fs";
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 
-export type Role = "po" | "qa" | "tl";
+export type Role = "pm" | "po" | "qa" | "tl";
 
 export type Skill = {
   readonly role: Role;
@@ -21,6 +21,7 @@ export type RoleGroup = {
 };
 
 const ROLES: readonly { role: Role; label: string }[] = [
+  { role: "pm", label: "Project Manager" },
   { role: "po", label: "Product Owner" },
   { role: "qa", label: "QA Leader" },
   { role: "tl", label: "Tech Leader" },
@@ -99,4 +100,16 @@ export async function listSkills(): Promise<RoleGroup[]> {
       skills: await readRole(role),
     })),
   );
+}
+
+const ROLE_KEYS = new Set<string>(ROLES.map(({ role }) => role));
+
+/** Lee el SKILL.md crudo de una skill. `null` si el role/slug no existe. */
+export async function readSkillMarkdown(role: string, slug: string): Promise<string | null> {
+  if (!ROLE_KEYS.has(role) || !/^[a-z0-9-]+$/.test(slug)) return null;
+  try {
+    return await readFile(path.join(SKILLS_DIR, role, slug, "SKILL.md"), "utf8");
+  } catch {
+    return null;
+  }
 }
