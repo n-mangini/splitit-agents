@@ -64,3 +64,4 @@ corre, conviene borrarla.
 | QA | [frontend-screenshots](qa/frontend-screenshots/SKILL.md) | @FranManfredi | Arma un pipeline de screenshots de frontend con Playwright y GitHub Actions, con capturas desktop/mobile, artefacto descargable y galería HTML |
 | PO | [iterar-canvas](po/iterar-canvas/SKILL.md) | @n-mangini | Trabaja una historia sobre el canvas ya construido: cruza sus criterios contra la pantalla, cierra los huecos con el PO, y deja la issue y el deploy al día |
 | TL | [reparar-secuencia-de-prs](tl/reparar-secuencia-de-prs/SKILL.md) | @lucasmonteverdi1 | Repara dos PRs dependientes mergeadas en orden incorrecto cuando un revert hizo desaparecer funcionalidad de main, sin reescribir su historia |
+| TL | [contenerizar-app](tl/contenerizar-app/SKILL.md) | @lucasmonteverdi1 | Conteneriza las apps de un repo (una sola o monorepo) y arma el pipeline que publica cada imagen en GHCR |
