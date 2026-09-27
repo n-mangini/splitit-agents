@@ -68,3 +68,4 @@ corre, conviene borrarla.
 | PM | [reportar-incidente](pm/reportar-incidente/SKILL.md) | @husseymarcos | Convierte la descripción de un incidente en una fila breve y lista para registrar |
 | PO | [construir-pantalla](po/construir-pantalla/SKILL.md) | @n-mangini | Construye en el prototipo la pantalla de una historia que todavía no tiene ninguna, y la enchufa al canvas con su dirección estable |
 | TL | [contenerizar-app](tl/contenerizar-app/SKILL.md) | @lucasmonteverdi1 | Conteneriza las apps de un repo (una sola o monorepo) y arma el pipeline que publica cada imagen en GHCR |
+| PO | [orientar-sprint](po/orientar-sprint/SKILL.md) | @lucasmonteverdi1 | Cruza Linear, el repo de aplicación, el roadmap y el canvas para mostrar el estado real del sprint y recomendar con qué historia seguir |
