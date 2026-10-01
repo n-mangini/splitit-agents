@@ -25,13 +25,18 @@ Reconstruir el estado real con las fuentes disponibles, en este orden:
 
 1. El GitHub Project **SplitIt Roadmap**, especialmente su vista Gantt:
    `https://github.com/orgs/SplitItLab/projects/1/views/2`. Tomar de ahí el Sprint,
-   milestone y las user stories previstas para la semana actual.
+   milestone y las user stories previstas para la semana actual y la siguiente.
 2. Las issues `SPLT-*` enlazadas desde el Roadmap, que definen alcance y criterios de
    producto.
 3. Implementación actual, PRs abiertos, issues técnicas y trabajo pendiente de revisión.
 4. Roadmap, iteración y decisiones del repositorio; usar
    `03-release/release-plan.md` como respaldo si el GitHub Project no está accesible.
 5. Sesiones recientes del mismo proyecto, si son accesibles.
+
+Para diseños frontend, consultar [SplitIt Canvas](https://splitit-canvas.vercel.app/canvas)
+y enlazar en el ticket la pantalla o flujo correspondiente, si tiene enlace directo;
+en caso contrario, enlazar el Canvas e identificar la pantalla. Si no se puede acceder
+o falta el diseño, explicitarlo sin inventar especificaciones visuales.
 
 El Roadmap define la intención semanal; el estado del código define qué es viable. Si
 deuda, un revert o trabajo arrastrado consume capacidad, mostrar el desvío respecto del
@@ -54,8 +59,14 @@ tickets destinados a developers. Los enlaces al Canvas sí pueden incluirse.
 - Agrupar tareas estrechamente relacionadas cuando separarlas solo agregaría branches,
   PRs, merges o bloqueos. Preferir un ticket principal por dev; agregar otro solo si es
   independiente y completa mejor el flujo.
-- Frontend y backend deben poder avanzar en paralelo. Definir primero el contrato mínimo
-  que comparten y evitar dependencias duras que obliguen a esperar un merge.
+- Mantener backend una semana adelantado: en la semana N, frontend implementa sobre
+  APIs reales entregadas y validadas en N−1, mientras backend prepara las APIs para el
+  frontend de N+1. Acordar el contrato mínimo antes del trabajo backend y verificar que
+  su entrega esté disponible en el entorno de integración antes de planificar frontend.
+- No incluir creación, mantenimiento ni uso de una API mock en los tickets. Si una API
+  real no está lista, elegir trabajo frontend independiente o reprogramar ese incremento;
+  no asignar frontend que espere una entrega backend de la misma semana. Al iniciar esta
+  cadencia, priorizar backend y explicitar el ajuste necesario en frontend.
 - Priorizar un recorrido natural y comprobable del producto. No dejar datos creados sin
   una forma razonable de volver a encontrarlos ni pantallas sin salida.
 - Recortar primero pulido visual, animaciones, búsquedas avanzadas y extras. No recortar
@@ -63,7 +74,8 @@ tickets destinados a developers. Los enlaces al Canvas sí pueden incluirse.
   prueba mínima del recorrido.
 - No forzar una historia completa si no entra. Nombrar con precisión el incremento
   entregable y dejar explícito qué criterio de la historia queda pendiente.
-- Mantener internamente la relación de cada ticket técnico con la user story de la semana.
+- Mantener internamente la relación de cada ticket técnico con la user story de su semana
+  objetivo: la actual para frontend y la siguiente para backend.
   Si una historia necesita tickets frontend y backend, mantener el contrato compartido
   pero un rol responsable y una PR por ticket.
 - Los tickets describen qué entregar, no el razonamiento de planificación. Mantener la
@@ -78,6 +90,8 @@ Antes de crear o modificar issues, entregar un cuadro corto:
 
 Debajo, mostrar el flujo de usuario que quedará funcionando y el total por dev. Si hay
 dos alternativas razonables, recomendar una y explicar el único trade-off decisivo.
+Separar el resultado frontend de esta semana de la entrega backend que habilita la
+siguiente; señalar cualquier desvío del Gantt necesario para sostener esa cadencia.
 
 Cada ticket debe incluir únicamente:
 
