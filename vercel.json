@@ -1,8 +1,0 @@
-{
-  "crons": [
-    {
-      "path": "/api/cron/github-weekly",
-      "schedule": "0 12 * * 4"
-    }
-  ]
-}

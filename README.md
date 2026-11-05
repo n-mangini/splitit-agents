@@ -1,128 +1,42 @@
-# PM Tools · SplitIt
+# Skills · SplitIt
 
-Aplicación Next.js + Eve con tres agentes independientes:
+Catálogo de skills reutilizables para equipos de producto, gestión, desarrollo y calidad.
+La aplicación sólo muestra el catálogo: permite copiar, descargar y consultar el Markdown,
+y copiar el comando de instalación de cada skill. Las skills se ejecutan en el agente del
+usuario; esta app no ejecuta agentes ni se conecta a servicios externos.
 
-- `control-tower`: estado, hitos, atrasos, bloqueos, riesgos y decisiones.
-- `backlog-refiner`: requerimientos → user stories; crear en Linear requiere aprobación.
-- `meeting-steering`: agendas, informes para Steering y próximos pasos.
+## Desarrollo
 
-Cada agente tiene prompt, sesión y superficie de herramientas propios. `withEve()` los publica juntos en un solo proyecto de Vercel.
-
-## Qué necesitás
-
-- Node.js 24 o superior.
-- Una cuenta/equipo de Vercel con Vercel Connect habilitado.
-- Créditos de OpenAI API y una `OPENAI_API_KEY` de `platform.openai.com`.
-- Permiso para instalar la conexión en el workspace de Linear de SplitIt.
-- Los integrantes que usarán la app agregados al equipo/proyecto de Vercel.
-
-## Correr local
+Requiere Node.js 24 y npm.
 
 ```bash
-npm install
-vercel login
-vercel link
-vercel env add OPENAI_API_KEY development
-vercel env pull .env.local
+npm ci
 npm run dev
 ```
 
-Abrí `http://localhost:3000`.
+Abrí `http://localhost:3000`. `/skills` redirige al catálogo de inicio.
+No requiere variables de entorno, claves de IA ni conexiones a Linear o GitHub.
 
-El dashboard muestra el estado de Linear y GitHub. Ambas fuentes se consultan server-side mediante Vercel Connect; la UI nunca recibe sus tokens.
+## Agregar o usar skills
 
-La sección **Horas reales** lee los archivos Markdown de `time-entries/` y guarda
-lo que Linear no tiene: el tiempo real contra el estimado y las dificultades de
-cada ticket. Un archivo por ticket, un número por archivo. Un punto de Linear se
-lee como una hora, así que estimado y real se comparan directo. Los tickets sin
-horas se listan igual, marcados como *Sin cargar*. La sección es de solo lectura:
-para registrar tiempo se edita el Markdown y se hace commit. También exporta todo
-como CSV compatible con Excel; ver `time-entries/README.md`. Cada archivo representa un ticket y cada fila
-de su tabla una carga fechada.
+Cada skill vive en `skills/<rol>/<nombre>/SKILL.md`. La app las descubre por rol y
+muestra su descripción, owner y acciones. Ver [formato e índice](skills/README.md).
 
-Las fechas de Steering, parciales y finales se guardan en `localStorage`: quedan en ese navegador y dispositivo. No se sincronizan entre integrantes porque esta versión no usa base de datos.
+Podés instalar una skill desde su comando en el catálogo, copiar su contenido o descargarla.
+`./skills/install.sh` enlaza las skills del checkout en `~/.claude/skills`.
 
-Los tres agentes usan OpenAI directamente mediante `@ai-sdk/openai`. El modelo está fijado en código como `gpt-5.4-mini`. El consumo se descuenta de la cuenta asociada a `OPENAI_API_KEY`.
-
-Para producción y previews:
+## Verificación
 
 ```bash
-vercel env add OPENAI_API_KEY production
-vercel env add OPENAI_API_KEY preview
-```
-
-No expongas `OPENAI_API_KEY` en variables `NEXT_PUBLIC_*` ni en el repositorio.
-
-## Conectar Linear
-
-Desde la raíz del proyecto:
-
-```bash
-vercel connect create linear
-vercel connect attach linear --yes
-```
-
-Autorizá el workspace de SplitIt cuando Vercel lo solicite. Los tres agentes usan el conector `linear` con `principalType: "app"`: una instalación compartida para todo el grupo.
-
-Usá el UID completo que devuelve el CLI (por ejemplo, `linear/splitit-c0e8`) en el health check y en las tres conexiones:
-
-- `app/api/connections/route.ts`
-- `agents/control-tower/agent/connections/linear.ts`
-- `agents/backlog-refiner/agent/connections/linear.ts`
-- `agents/meeting-steering/agent/connections/linear.ts`
-
-Después de crear/adjuntar Linear:
-
-```bash
-vercel env pull .env.local
-```
-
-## Verificar
-
-```bash
-npm run typecheck
 npm test
+npm run typecheck
 npm run build
 ```
 
-Con `npm run dev`, los health checks son:
+Los tests verifican el catálogo y la lectura del Markdown. El build genera la página de
+inicio y conserva la descarga por `/skills/<rol>/<nombre>/raw`.
 
-```text
-/eve/agents/control-tower/eve/v1/health
-/eve/agents/backlog-refiner/eve/v1/health
-/eve/agents/meeting-steering/eve/v1/health
-```
+## Publicación
 
-## Deploy a producción
-
-```bash
-vercel deploy --prod
-```
-
-El comando devuelve la URL de producción. No hace falta un repositorio GitHub para desplegar con Vercel CLI.
-
-## Dar acceso al grupo
-
-La versión actual no tiene usuarios ni roles propios. Para compartirla de forma segura:
-
-1. Invitá a los integrantes al equipo/proyecto de Vercel.
-2. En Vercel: **Project → Settings → Deployment Protection**.
-3. Activá **Vercel Authentication** para Production.
-4. Compartí la URL de producción; cada integrante entra con su cuenta de Vercel.
-
-Linear es una conexión compartida a nivel aplicación. Todos consultan el mismo proyecto y toda escritura sigue mostrando una aprobación humana antes de ejecutarse.
-
-Si cada integrante debe usar su propia cuenta de Linear en lugar de una instalación compartida, hay que agregar Auth.js y cambiar el conector a `principalType: "user"`.
-
-## GitHub
-
-El conector `github/splitit-github` consulta los PRs de `SplitItLab/SplitIt`. El dashboard agrupa las horas declaradas en el template por autor y semana de apertura, y muestra el desvío contra la estimación.
-
-Vercel actualiza el corte cada jueves a las 09:00 de Argentina mediante `/api/cron/github-weekly`. La variable `CRON_SECRET` protege ese endpoint.
-
-## Seguridad actual
-
-- Tokens y credenciales quedan en Vercel Connect, nunca en frontend.
-- Las tools de escritura de Linear requieren aprobación humana.
-- El canal interno es monogrupo; la barrera de acceso es Vercel Deployment Protection.
-- No compartir la URL sin activar Deployment Protection.
+Desplegar como una aplicación Next.js estándar con `npm run build` y `npm start`, o con
+la integración Git del proveedor de hosting. No hay cron jobs ni funciones de agentes.

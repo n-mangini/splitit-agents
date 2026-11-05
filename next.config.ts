@@ -1,12 +1,18 @@
 import type { NextConfig } from "next";
-import { withEve } from "eve/next";
 
-const nextConfig: NextConfig = {};
-
-export default withEve(nextConfig, {
-  agents: {
-    "control-tower": "./agents/control-tower/agent",
-    "backlog-refiner": "./agents/backlog-refiner/agent",
-    "meeting-steering": "./agents/meeting-steering/agent",
+const nextConfig: NextConfig = {
+  outputFileTracingIncludes: {
+    "/skills/*/*/raw": ["./skills/**/*"],
   },
-});
+  async redirects() {
+    return [
+      {
+        source: "/skills/pm/crear-deck-splitit/raw",
+        destination: "/skills/pm/crear-deck-reveal/raw",
+        permanent: true,
+      },
+    ];
+  },
+};
+
+export default nextConfig;

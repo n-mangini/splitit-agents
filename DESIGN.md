@@ -1,6 +1,6 @@
 ---
-name: SplitIt PM Workspace
-description: A quiet control room that turns project truth into action.
+name: SplitIt Skills
+description: A quiet catalog of reusable agent skills.
 colors:
   signal-mint: "#29c3a0"
   ink: "#0c0c0c"
@@ -63,22 +63,15 @@ components:
     height: "36px"
 ---
 
-# Design System: SplitIt PM Workspace
+# Design System: SplitIt Skills
 
 ## Overview
 
-**Creative North Star: "The Quiet Control Room"**
+**Creative North Star: "The Quiet Catalog"**
 
-This is a restrained operational surface for a PM working under normal office light and time pressure. The interface should disappear into the task: one clear workspace, compact navigation, readable project evidence, and an unmistakable next action.
-
-The system rejects the generic AI dashboard. It does not use spectacle to imply intelligence; trust comes from clarity, source-backed information, predictable controls, and calm state feedback.
-
-**Key Characteristics:**
-- Restrained and immediate controls
-- One primary action color
-- Compact but readable information density
-- Tonal hierarchy instead of decorative containers
-- Responsive structure without mobile feature loss
+This is a restrained catalog for finding reusable instructions by role. The interface
+prioritizes skill names, descriptions, authorship and familiar copy/download actions.
+Use a single centered content column with responsive cards and compact controls.
 
 ## Colors
 
@@ -112,7 +105,7 @@ The palette is neutral and warm, with mint reserved for functional emphasis.
 - **Label** (500, 0.75rem, 1.25): Navigation, statuses, and metadata; sentence case only.
 - **Micro** (400, 0.6875rem, 1.25): Dates, keyboard hints, and low-emphasis metadata only.
 
-**The Working Type Rule.** Product copy is sentence case and compact. Never use display typography, tracked uppercase eyebrows, or oversized metrics in the workspace.
+**The Working Type Rule.** Product copy is sentence case and compact. Never use display typography, tracked uppercase eyebrows, or oversized metrics in the catalog.
 
 ## Elevation
 
@@ -145,11 +138,11 @@ Components feel restrained and immediate, using familiar web affordances and 150
 - **Focus:** Signal Blue border and three-pixel translucent ring.
 - **Error / Disabled:** Semantic state plus text or icon; never color alone.
 
-### Navigation
-- Use a 240px desktop sidebar and horizontal agent navigation on small screens. Active items use a white surface and subtle state lift, not a saturated fill. Project utilities remain visually subordinate to agent selection.
+### Catalog layout
 
-### Agent Workspace
-- Keep message content near 672px wide. The composer stays visually anchored below the conversation. Quick actions are plain divided rows, not a grid of cards. One live conversation exists per agent while the page session is active; there is no chat history management.
+Use a single centered column, role sections and compact cards. Do not show a sidebar,
+project dashboard, agent selection or connection status. Keep card actions keyboard
+accessible, with visible focus and feedback after copying.
 
 ## Do's and Don'ts
 
@@ -157,7 +150,7 @@ Components feel restrained and immediate, using familiar web affordances and 150
 - **Do** make the next action visible without scanning multiple panels.
 - **Do** use Signal Mint only for action, focus, selection, and meaningful state.
 - **Do** preserve keyboard access, visible focus, reduced motion, and WCAG 2.2 AA contrast.
-- **Do** keep project evidence and recommendations readable at a maximum line length near 70ch.
+- **Do** keep skill descriptions and instructions readable at a maximum line length near 70ch.
 
 ### Don't:
 - **Don't** create a generic AI dashboard with gradients, chat gimmicks, excessive cards, decorative metrics, or gratuitous motion.

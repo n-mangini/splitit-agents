@@ -1,16 +1,3 @@
-# eve Agent App
-
-This project uses the eve framework. Before writing code, read the relevant guide
-from the installed eve package docs. In most installs, those docs are at
-`node_modules/eve/docs/`. In workspaces or local package installs, resolve the
-installed `eve` package location first and read its `docs/` directory. If
-package docs are unavailable, use https://eve.dev/docs as a fallback.
-
-Before implementing an integration yourself, use
-`eve registry search <query>` or `eve registry list` to discover available
-integrations. Inspect one with `eve registry view <item>`, then install it with
-`eve add <item>`.
-
 <!-- BEGIN:nextjs-agent-rules -->
 # This is NOT the Next.js you know
 
@@ -19,6 +6,18 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 <!-- END:nextjs-agent-rules -->
 
-## Design Context
+## Project scope
 
-Read `PRODUCT.md` for product strategy and `DESIGN.md` for the visual system before changing user-facing interfaces. Preserve the quiet, task-focused PM workspace and do not add chat-history management without a demonstrated need.
+This is a Next.js catalog of reusable skills. Read `PRODUCT.md` and `DESIGN.md` before
+changing the interface. The app lists `skills/<role>/<slug>/SKILL.md` and serves raw
+Markdown for viewing, copying and downloading. Keep the root page focused on the catalog.
+
+New or revised skills must adapt to the consuming project's sources and conventions.
+Preserve owner metadata and other authors' content outside the requested changes.
+There is no agent runtime, dashboard, time reporting, external connection or cron job.
+
+## Verification
+
+Run `npm test`, `npm run typecheck`, and `npm run build` after changes. Verify catalog
+rendering and raw Markdown routes when changing the user flow. Do not add dependencies
+without explicit approval.
