@@ -71,3 +71,4 @@ corre, conviene borrarla.
 | PO | [orientar-sprint](po/orientar-sprint/SKILL.md) | @lucasmonteverdi1 | Cruza Linear, el repo de aplicación, el roadmap y el canvas para mostrar el estado real del sprint y recomendar con qué historia seguir |
 | PM | [verificar-historias-completadas](pm/verificar-historias-completadas/SKILL.md) | @lucasmonteverdi1 | Cruza cada historia abierta del roadmap contra el código real de SplitIt y propone cuáles cerrar, con la PR y el endpoint/componente como evidencia |
 | PM | [generar-informe-desempeno](pm/generar-informe-desempeno/SKILL.md) | @husseymarcos | Prepara informes de desempeño de developers con la rúbrica de Evaluación de devs, evidencia de Linear y una evaluación guiada para el PM |
+| PM | [crear-deck-splitit](pm/crear-deck-splitit/SKILL.md) | @husseymarcos | Crea o actualiza decks de SplitIt en Reveal.js para Steering, demos y entregas, con el estilo del equipo y datos respaldados por fuentes |
