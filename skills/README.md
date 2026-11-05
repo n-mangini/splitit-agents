@@ -1,6 +1,7 @@
 # Skills
 
-Herramientas de trabajo de los roles de gestión, una carpeta por rol.
+Instrucciones reutilizables para equipos, organizadas por rol. Cada skill descubre
+las fuentes, herramientas y convenciones del proyecto donde se usa.
 
 Son markdown plano: las ejecuta el agente que tenga el equipo (Claude Code,
 Codex, Cursor, etc.), no esta app. La app las lee de acá y las muestra; ellas
@@ -64,11 +65,19 @@ corre, conviene borrarla.
 | QA | [frontend-screenshots](qa/frontend-screenshots/SKILL.md) | @FranManfredi | Arma un pipeline de screenshots de frontend con Playwright y GitHub Actions, con capturas desktop/mobile, artefacto descargable y galería HTML |
 | PO | [iterar-canvas](po/iterar-canvas/SKILL.md) | @n-mangini | Trabaja una historia sobre el canvas ya construido: cruza sus criterios contra la pantalla, cierra los huecos con el PO, y deja la issue y el deploy al día |
 | TL | [reparar-secuencia-de-prs](tl/reparar-secuencia-de-prs/SKILL.md) | @lucasmonteverdi1 | Repara dos PRs dependientes mergeadas en orden incorrecto cuando un revert hizo desaparecer funcionalidad de main, sin reescribir su historia |
-| PM | [armar-tickets-semanales](pm/armar-tickets-semanales/SKILL.md) | @husseymarcos | Convierte las prioridades de la semana en tickets para devs full-stack con 6 h cada uno, contra el Roadmap, en modo detallado o de diseño abierto |
-| PM | [reportar-incidente](pm/reportar-incidente/SKILL.md) | @husseymarcos | Convierte la descripción de un incidente en una fila breve y lista para registrar |
 | PO | [construir-pantalla](po/construir-pantalla/SKILL.md) | @n-mangini | Construye en el prototipo la pantalla de una historia que todavía no tiene ninguna, y la enchufa al canvas con su dirección estable |
 | TL | [contenerizar-app](tl/contenerizar-app/SKILL.md) | @lucasmonteverdi1 | Conteneriza las apps de un repo (una sola o monorepo) y arma el pipeline que publica cada imagen en GHCR |
 | PO | [orientar-sprint](po/orientar-sprint/SKILL.md) | @lucasmonteverdi1 | Cruza Linear, el repo de aplicación, el roadmap y el canvas para mostrar el estado real del sprint y recomendar con qué historia seguir |
 | PM | [verificar-historias-completadas](pm/verificar-historias-completadas/SKILL.md) | @lucasmonteverdi1 | Cruza cada historia abierta del roadmap contra el código real de SplitIt y propone cuáles cerrar, con la PR y el endpoint/componente como evidencia |
-| PM | [generar-informe-desempeno](pm/generar-informe-desempeno/SKILL.md) | @husseymarcos | Prepara informes de desempeño de developers con la rúbrica de Evaluación de devs, evidencia de Linear y una evaluación guiada para el PM |
-| PM | [crear-deck-splitit](pm/crear-deck-splitit/SKILL.md) | @husseymarcos | Crea o actualiza decks de SplitIt en Reveal.js para Steering, demos y entregas, con el estilo del equipo y datos respaldados por fuentes |
+| PM | [actualizar-cronograma](pm/actualizar-cronograma/SKILL.md) | @husseymarcos | Prepara o aplica una actualización del cronograma de un proyecto comparando línea base, ejecución real y plan futuro en su herramienta de planificación, con evidencia por cambio. |
+| PM | [armar-tickets-semanales](pm/armar-tickets-semanales/SKILL.md) | @husseymarcos | Planifica y redacta tickets semanales según las prioridades, capacidad real, especialidades y convenciones de un equipo. Usar al elegir alcance, estimar, dividir o cargar trabajo; no para implementarlo. |
+| PM | [calcular-valor-ganado](pm/calcular-valor-ganado/SKILL.md) | @husseymarcos | Calcula el valor ganado de un proyecto a una fecha de corte, con PV, EV, AC, indicadores y proyección trazables a la línea base aprobada y a la evidencia de ejecución. |
+| PM | [crear-deck-reveal](pm/crear-deck-reveal/SKILL.md) | @husseymarcos | Crea o actualiza presentaciones HTML con Reveal.js a partir de un brief y fuentes, adaptando narrativa, identidad visual, notas y exportación a la audiencia y al proyecto. |
+| PM | [generar-informe-desempeno](pm/generar-informe-desempeno/SKILL.md) | @husseymarcos | Prepara un informe de desempeño con la rúbrica acordada, evidencia del trabajo realizado y evaluación guiada del responsable. Usar al evaluar una persona durante un período; no inventa criterios ni puntajes. |
+| PM | [preparar-relevo-rol](pm/preparar-relevo-rol/SKILL.md) | @husseymarcos | Prepara el traspaso de una responsabilidad o rol de proyecto con estado a la fecha, decisiones vigentes, pendientes con responsable y próximos pasos sustentados en fuentes. |
+| PM | [registrar-decision](pm/registrar-decision/SKILL.md) | @husseymarcos | Documenta una decisión o sesión de trabajo con contexto, alternativas y consecuencias, adaptándose al decision log o formato ADR del proyecto. |
+| PM | [reportar-incidente](pm/reportar-incidente/SKILL.md) | @husseymarcos | Convierte el relato de un incidente en un registro factual con impacto, estado, criticidad, fechas y resolución. Adapta el formato al proyecto; no diagnostica ni corrige la falla. |
+| PO | [preparar-demo](po/preparar-demo/SKILL.md) | @husseymarcos | Prepara un guion verificable de demo de un producto con recorrido, datos de prueba, tiempos, evidencia y alternativa ante fallas, ajustado al estado del producto. |
+| QA | [frontend-atomic-refactor](qa/frontend-atomic-refactor/SKILL.md) |  | Refactor an existing frontend in place into atomic, reusable components with centralized typography, UI copy, and global design tokens while preserving its current visual design and behavior. Use when asked to remove hardcoded UI values or magic numbers, standardize styles and text, improve responsiveness, or componentize an existing frontend; do not use to invent or redesign the interface. |
+| QA | [visual-review-agent](qa/visual-review-agent/SKILL.md) |  | Create or maintain the repository visual review agent that runs after frontend-screenshots, reads Playwright HTML/DOM snapshots plus a live reference page, calls NVIDIA through an OpenAI-compatible chat API, and comments on pull requests. Use when the user asks to set up or repair the current agentic PR visual review flow; do not use for screenshot capture alone. |
+| TL | [revisar-pr](tl/revisar-pr/SKILL.md) | @husseymarcos | Revisa un PR contra las convenciones del repositorio y los criterios de la historia. Devuelve hallazgos en español, líneas exactas y comentarios listos para copiar. |

@@ -3,42 +3,55 @@ name: reportar-incidente
 owner: "@husseymarcos"
 role: pm
 created: 2026-09-08
-description: Convierte la descripción de un incidente de SplitIt en una fila breve y lista para registrar. Usar al documentar un incidente nuevo o ya resuelto; no usar para diagnosticarlo ni corregirlo.
+description: Convierte el relato de un incidente en un registro factual con impacto, estado, criticidad, fechas y resolución. Adapta el formato al proyecto; no diagnostica ni corrige la falla.
 ---
 
 # Reportar incidente
 
-Convertir el relato recibido en un registro factual, breve y listo para copiar. No
-diagnosticar causas ni inventar impacto, fechas, acciones o resultados que el usuario no
-haya informado.
-
+Convertir el relato recibido en un registro breve y listo para revisar.
 Invocar como `/reportar-incidente <descripción del incidente>`.
 
-## Criterios
+## Convenciones y evidencia
 
-- **Descripción:** resumir qué ocurrió, a quién o qué afectó y el impacto observado. No
-  incluir hipótesis ni la solución.
-- **Estado:** usar `Cerrado` sólo si se informan una acción correctiva y una validación del
-  funcionamiento; en cualquier otro caso, `Abierto`.
-- **Criticidad:** usar `Alta` si bloquea un flujo esencial, afecta a varias personas,
-  compromete datos o seguridad, o impide operar; `Media` si degrada o bloquea parcialmente
-  el trabajo de una persona o un flujo con alternativa; `Baja` si el impacto es menor y no
-  bloquea el trabajo. Si el relato no permite decidir, usar `Por definir`.
-- **F. Alta:** usar la fecha del incidente si fue informada; de lo contrario, la fecha
-  actual. Formato `DD/MM/YYYY`.
-- **F. Límite:** usar únicamente una fecha o un SLA informado. Dejar vacío si no existe.
-- **F. Cierre:** completar sólo para un incidente cerrado y únicamente con la fecha
-  informada. Si se sabe que cerró hoy, usar la fecha actual; en otro caso, dejar vacío.
-- **Resolución:** para incidentes cerrados, resumir la acción realizada y cómo se comprobó
-  el resultado. Dejar vacío si sigue abierto o falta validación.
+Usar la plantilla, estados, escala de severidad y SLA del proyecto cuando estén disponibles.
+Resolverlos desde el material aportado o la documentación accesible; no exigir una
+herramienta específica. Si no existen, usar el formato y los criterios de respaldo de abajo,
+indicándolos como provisionales.
 
-Si hay información contradictoria, señalarla en una sola línea debajo de la tabla. No hacer
-preguntas antes de entregar el borrador; los campos vacíos hacen visible lo que falta.
+Separar hechos observados, hipótesis y resolución. No diagnosticar causas ni inventar
+impacto, acciones o resultados. Registrar entorno y alcance afectados cuando se conozcan,
+sin incluir credenciales ni datos personales innecesarios.
+
+## Criterios de respaldo
+
+- **Descripción:** qué ocurrió, a quién o qué afectó y qué impacto se observó. Una hipótesis
+  de causa se identifica como tal, separada de los hechos.
+- **Estado:** `Cerrado` sólo si se informa una resolución y una validación del funcionamiento;
+  de lo contrario, `Abierto`. Si el proyecto distingue mitigado, monitoreo o resuelto,
+  respetar sus definiciones.
+- **Criticidad provisional:** `Alta` si bloquea un flujo esencial, compromete datos o impide
+  operar; `Media` si degrada o bloquea parcialmente un flujo con alternativa; `Baja` si el
+  impacto es menor. Usar `Por definir` cuando no alcance la evidencia. El número de personas
+  afectadas aporta contexto, pero por sí solo no determina la severidad.
+- **Fechas:** distinguir ocurrencia, registro y cierre. Usar fecha de registro actual si se
+  pide registrar hoy; dejar ocurrencia desconocida sin completar. No usar hoy como fecha
+  del incidente por falta de información. Aplicar formato y zona del proyecto; en su
+  ausencia, ISO 8601 y zona explícita cuando haya horas.
+- **Límite:** completar sólo con plazo acordado o SLA aplicable cuya base esté documentada.
+- **Resolución:** acción realizada y evidencia de validación. Una mitigación temporal se
+  identifica como tal; no se transforma en una corrección definitiva.
+- **Responsable:** usar el informado o `Por asignar`, sin atribuirlo al autor de la skill.
 
 ## Salida
 
-Responder únicamente con esta tabla y, si corresponde, la línea de contradicción:
+Usar la plantilla existente. En ausencia de una, entregar:
 
-| Descripción | Estado | Criticidad | F. Alta | F. Límite | F. Cierre | Resolución |
-|---|---|---|---|---|---|---|
-| ... | ... | ... | ... | ... | ... | ... |
+| Descripción e impacto | Estado | Criticidad | Ocurrencia | Registro | Límite | Cierre | Responsable | Resolución y evidencia |
+|---|---|---|---|---|---|---|---|---|---|
+
+Completar una fila por incidente, dejando visibles los datos no informados. Debajo,
+señalar contradicciones o datos necesarios para clasificarlo. Entregar un borrador útil
+antes de pedir información adicional.
+
+La skill prepara el registro. Escribir en un tracker, enviar alertas o comunicar el
+incidente a otras personas requiere que esas acciones estén incluidas en el pedido.

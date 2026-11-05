@@ -3,105 +3,85 @@ name: generar-informe-desempeno
 owner: "@husseymarcos"
 role: pm
 created: 2026-10-01
-description: Prepara informes de desempeño de developers con la rúbrica de Evaluación de devs, evidencia de Linear y una evaluación guiada para el PM. Usar al evaluar a una persona durante un período o al preparar el relevo de PM.
+description: Prepara un informe de desempeño con la rúbrica acordada, evidencia del trabajo realizado y evaluación guiada del responsable. Usar al evaluar una persona durante un período; no inventa criterios ni puntajes.
 ---
 
 # Generar informe de desempeño
 
 Invocar como `/generar-informe-desempeno persona, desde, hasta`.
-Ejemplo: `/generar-informe-desempeno Mateo, 2026-09-01, 2026-09-30`.
-Si faltan persona o período, pedirlos juntos. Resolver la identidad en Linear;
-si hay homónimos, pedir una elección antes de atribuir tareas.
+Si faltan persona o período, pedirlos juntos. Resolver su identidad en las fuentes de
+trabajo del proyecto; ante homónimos, confirmar antes de atribuir tareas.
 
-## Rúbrica compartida
+## Rúbrica y fuentes
 
-Usar la misma rúbrica de [Evaluación de devs](sites-project://appgprj_6ab47d343f688191a604ce608f8d852f).
-Leer su contenido mediante una herramienta disponible o una copia aportada por el PM.
-Conservar exactamente criterios, descriptores, escala, pesos y fórmula de esa fuente.
-Registrar la versión o fecha de consulta y la fuente usada para que otro PM pueda
-reproducir la evaluación. No sustituirla por una rúbrica genérica.
+Localizar la rúbrica o los criterios acordados mediante documentación accesible o material
+aportado por el evaluador. Conservar criterios, descriptores, escala, pesos y fórmula;
+registrar versión o fecha para que la evaluación sea reproducible.
 
-Si la fuente no es accesible, pedir su contenido una sola vez y avanzar con la
-evidencia de Linear. Dejar la evaluación como borrador sin puntajes hasta recibirla.
+No exigir una app privada ni inventar una rúbrica. Si no está disponible, pedirla una vez
+y avanzar con la evidencia. Entregar una síntesis factual sin puntajes hasta contar con
+criterios. Si se solicita diseñar una rúbrica, presentarla como propuesta separada antes
+de usarla para calificar.
 
-## Evidencia de Linear
+Identificar tracker, repositorios, objetivos, entregables y feedback pertinentes al rol.
+Usar sólo las fuentes disponibles y autorizadas; no requerir Linear ni otro proveedor.
+La autoría de la skill no identifica a la persona evaluadora.
 
-Consultar Linear en modo lectura. Resolver workspace, equipo y persona con las
-herramientas disponibles; usar el ID de usuario para filtrar. Recorrer todas las
-páginas e incluir archivadas. No filtrar únicamente por fecha de creación: una
-tarea antigua puede haberse entregado en el período evaluado.
+## Evidencia
 
-Recuperar ID, título, URL, responsable, estado y tipo de estado, `completedAt`,
-`dueDate`, ciclo y proyecto. Revisar descripción y comentarios cuando hagan falta
-para verificar compromisos, entrega, bloqueos o cambios de alcance. No asumir que
-las herramientas exponen el historial de estados o vencimientos.
+Recuperar identificadores, enlaces, responsables acreditados, estados, fechas, compromisos
+y resultados relevantes al período. Recorrer la paginación y considerar registros
+archivados si la fuente los tiene. No filtrar sólo por fecha de creación: un trabajo
+antiguo puede haberse entregado en el período.
 
-Antes de calcular, establecer qué significa entrega en la rúbrica: PR lista para
-review, merge o tarea terminada. Si la fuente no lo define, pedirlo al PM mientras
-se reúne la evidencia. `completedAt` acredita cierre en Linear, no fecha de PR ni
-merge. Una tarea en review puede estar entregada si ése es el hito acordado.
+Definir qué significa entrega o resultado cumplido según la rúbrica: aceptación,
+PR lista para revisión, merge, despliegue u otro hito. El cierre de un ticket no prueba
+automáticamente los demás. Consultar comentarios e historial cuando hagan falta para
+entender bloqueos, reasignaciones o cambios de alcance.
 
-### Cómputo reproducible
+Para métricas de puntualidad, cuando sean pertinentes:
 
-- Usar las fechas inclusivas del período y la zona `America/Argentina/Buenos_Aires`,
-  salvo otra zona acordada. Un vencimiento sin hora permite entregar hasta el fin
-  de ese día; comparar fechas locales, no medianoche UTC.
-- Contar como entregadas las tareas con evidencia del hito de entrega dentro del
-  período. Deduplicar por ID; no contar canceladas o duplicadas como entregas.
-- Clasificar como tardía sólo una entrega posterior a su vencimiento documentado.
-  Si falta el vencimiento o la fecha del hito, marcar «No verificable»; nunca
-  convertir un dato faltante en entrega puntual o tardía.
-- Mostrar entregadas, a tiempo, tardías, no verificables y porcentaje de tardías:
-  `tardías / (a tiempo + tardías) × 100`. Con denominador cero, mostrar «No calculable».
-- Mostrar aparte las pendientes vencidas al cierre del período: no son entregas
-  tardías. Reconstruir el estado al corte sólo con evidencia; el estado actual no
-  demuestra el estado histórico de una tarea reabierta o cerrada posteriormente.
-- Si sólo se conoce el vencimiento actual, indicar «Comparación con vencimiento
-  actual; historial no verificado». No afirmar que es el compromiso original.
-  No usar fin de ciclo como vencimiento sin un acuerdo documentado.
-- Para reasignaciones, distinguir responsable actual de responsable de la entrega;
-  no atribuir desempeño histórico sin evidencia. Separar bloqueos, cambios de
-  alcance y demoras de revisión de los hechos comprobados sobre la entrega.
-- Si la consulta queda incompleta, declarar la cobertura y presentar los conteos
-  como parciales. No afirmar que faltan tareas cuando sólo faltan permisos o datos.
+- Usar fechas inclusivas y la zona acordada. Una fecha sin hora se compara como fecha
+  local, no como medianoche UTC. Si la zona cambia la clasificación y no está definida,
+  pedirla antes de emitir el resultado.
+- Deduplicar por ID. Separar entregas, cancelaciones, duplicados y pendientes.
+- Clasificar como tardía sólo una entrega posterior al compromiso documentado.
+  Sin vencimiento o evidencia del hito, marcar `No verificable`.
+- Mostrar a tiempo, tardías y no verificables, con porcentaje
+  `tardías / (a tiempo + tardías) × 100`. Con denominador cero: `No calculable`.
+- Mostrar pendientes vencidas aparte. El estado actual no demuestra el estado histórico;
+  una fecha de vencimiento actual no acredita el compromiso original.
+- Acreditar responsable en el momento de la entrega y separar causas de contexto de los
+  hechos. No atribuir retrasos de revisión, cambios de alcance o bloqueos sin evidencia.
 
-## Evaluación guiada para cualquier PM
+Si faltan accesos o la consulta es parcial, declarar cobertura. El volumen de tickets,
+horas o commits no demuestra por sí solo calidad, colaboración o productividad individual.
 
-Presentar primero la evidencia y precargar cada criterio de la rúbrica con los
-hechos que lo sustentan. El volumen de tickets y la puntualidad no prueban por sí
-solos calidad técnica, colaboración u otros criterios.
+## Evaluación guiada
 
-Pedir al PM en un único bloque los datos pendientes por criterio: observación,
-ejemplo concreto y puntaje dentro de la escala original. Permitir «Sin evidencia».
-No volver a preguntar información ya aportada. Cuando haya evidencia suficiente,
-proponer puntajes con su justificación para revisión del PM; distinguir propuestas
-de puntajes confirmados y no cerrar una evaluación con puntajes pendientes.
+Presentar evidencia por criterio antes de proponer puntajes. Pedir al evaluador en un
+único bloque la observación, ejemplo y valoración que falten; admitir `Sin evidencia`.
+No repetir preguntas ya respondidas. Distinguir hechos, interpretación, puntajes
+propuestos y valoraciones confirmadas.
 
-Aplicar únicamente la fórmula original. No inventar pesos ni reemplazar criterios
-sin evidencia por cero; si la rúbrica no define cómo tratar faltantes, dejar el
-resultado global pendiente. Mantener separados datos, interpretación y comentario
-del PM, y señalar contradicciones sin resolverlas por suposición.
+Aplicar únicamente la fórmula acordada. No reemplazar evidencia ausente por cero.
+Si la rúbrica no define el tratamiento de faltantes, dejar el resultado global pendiente.
+Revisar contradicciones con el evaluador en vez de resolverlas por suposición.
 
 ## Informe
 
-Entregar un informe listo para revisar con:
+Entregar persona, evaluador, período, fecha de corte, rúbrica, definición de entrega y
+cobertura. Incluir:
 
-1. Persona, PM evaluador, período, fecha de corte, definición de entrega y fuente
-   de la rúbrica. Si no se conoce el PM, dejarlo por completar.
-2. Resumen de entregas y cobertura de datos, con el denominador del porcentaje.
-3. Evidencia por tarea:
+| Trabajo u objetivo | Responsable acreditado | Compromiso y fuente | Resultado y evidencia | Contexto |
+|---|---|---|---|---|
 
-   | Tarea enlazada | Responsable acreditado | Vencimiento y fuente | Entrega y evidencia | Resultado | Contexto |
-   |---|---|---|---|---|---|
+| Criterio | Evidencia | Puntaje propuesto o confirmado | Observación del evaluador | Pendiente |
+|---|---|---|---|---|
 
-4. Evaluación con los nombres exactos de los criterios:
+Cerrar con resultado si es calculable, fortalezas, aspectos a mejorar y acciones realmente
+acordadas con responsable y fecha. Si no están acordadas, etiquetarlas como propuestas.
+Indicar qué falta para validar el informe.
 
-   | Criterio | Evidencia | Puntaje propuesto o confirmado | Observación del PM | Pendiente |
-   |---|---|---|---|---|
-
-5. Resultado según la rúbrica cuando sea calculable, fortalezas, aspectos a mejorar
-   y acciones acordadas con responsable y fecha. No inventar acuerdos.
-
-Terminar indicando qué falta para que el PM valide el informe. Entregarlo en el
-chat o en un archivo si se solicita; no publicarlo, enviarlo a otras personas ni
-modificar Linear como parte de esta skill.
+Entregarlo al solicitante en el chat o formato pedido. No publicarlo, enviarlo a terceros
+ni modificar tareas como parte implícita de la evaluación.
