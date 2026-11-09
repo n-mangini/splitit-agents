@@ -87,3 +87,7 @@ corre, conviene borrarla.
 | PM | [reportar-semaforo](pm/reportar-semaforo/SKILL.md) | @n-mangini | Arma el estado semanal para la cátedra con alcance, cronograma, costo, riesgos e incidentes en verde, amarillo o rojo, a alto nivel |
 | PM | [armar-linktree](pm/armar-linktree/SKILL.md) | @n-mangini | Arma la página de links del proyecto con la estructura de Linktree y la identidad visual de la app |
 | QA | [validar-pr-de-producto](qa/validar-pr-de-producto/SKILL.md) | @n-mangini | Prueba la historia desde la preview de la PR, cruza los criterios de aceptación, revisa que sea un slice vertical y marca solo lo técnico que rompe algo |
+| TL | [preparar-deploy](tl/preparar-deploy/SKILL.md) | @lucasmonteverdi1 | Revisa un cambio antes de desplegarlo (migraciones, estado en memoria, variables por ambiente, cookies, jobs) y devuelve go/no-go con evidencia |
+| TL | [actualizar-modelo-de-datos](tl/actualizar-modelo-de-datos/SKILL.md) | @lucasmonteverdi1 | Reconstruye el ER del modelo de datos desde las migraciones de la rama principal, marcando cambios y diferencias con los modelos del código |
+| QA | [triar-reporte-de-bug](qa/triar-reporte-de-bug/SKILL.md) | @lucasmonteverdi1 | Convierte un reporte de bug en veredicto (bug, esperado, duplicado, ambiente) con reproducción, criterio que rompe, severidad y borrador de issue |
+| PM | [auditar-kpis-reportados](pm/auditar-kpis-reportados/SKILL.md) | @lucasmonteverdi1 | Revisa qué KPIs llegaron a su destino en un rango de días y devuelve huecos, valores fuera de rango y si corresponde abrir incidente |
