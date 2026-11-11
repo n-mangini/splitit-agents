@@ -1,5 +1,6 @@
 ---
 name: visual-review-agent
+owner: "@FranManfredi"
 description: Create or maintain the repository visual review agent that runs after frontend-screenshots, reads Playwright HTML/DOM snapshots plus a live reference page, calls NVIDIA through an OpenAI-compatible chat API, and comments on pull requests. Use when the user asks to set up or repair the current agentic PR visual review flow; do not use for screenshot capture alone.
 ---
 

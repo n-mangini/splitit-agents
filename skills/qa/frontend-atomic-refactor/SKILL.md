@@ -1,5 +1,6 @@
 ---
 name: frontend-atomic-refactor
+owner: "@FranManfredi"
 description: Refactor an existing frontend in place into atomic, reusable components with centralized typography, UI copy, and global design tokens while preserving its current visual design and behavior. Use when asked to remove hardcoded UI values or magic numbers, standardize styles and text, improve responsiveness, or componentize an existing frontend; do not use to invent or redesign the interface.
 ---
 
